@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<body>
+
+    <form action="/login" method="post" id="logInForm">
+        <input type="email" name="username" placeholder="Введите e-mail" size="30"/><br>
+        <input type="password" name="password" placeholder="Пароль" id="pass"/>
+        <input type="checkbox" title="checkbox" onclick="function togglePassword() {
+            let x = document.getElementById('pass');
+            if(x.type==='password'){
+                x.type = 'text'
+            }
+            else {
+                x.type = 'password'
+            }
+        }
+        togglePassword()">Показать пароль
+
+        <br>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}"/>
+        <button type="submit" name="auth">Войти</button>
+    </form>
+    <!--<script type="text/javascript">-->
+        <!--document.getElementById("logInForm").addEventListener("submit", function(event) {-->
+            <!--event.preventDefault();-->
+            <!--let form = event.target;-->
+            <!--let email = form.email.value;-->
+            <!--let password = form.password.value;-->
+
+            <!--fetch("/login", {-->
+                <!--method: "POST",-->
+                <!--headers: {-->
+                    <!--"Content-type": "application/x-www-form-urlencoded; charset=UTF-8"-->
+                <!--},-->
+                <!--body: `&password=${password}&email=${email}`-->
+            <!--}).then()-->
+        <!--})-->
+    <!--</script>-->
+
+</body>
+</html>
